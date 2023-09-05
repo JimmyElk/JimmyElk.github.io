@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Homework 2 - CIS 114">
+    <title>Part 2 - Integer Operations</title>
+    <style>
+        body {
+            background-color: white;
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 10px;
+            background-color: #2d9fae;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 13px;
+            width: 100px;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            background-color: rgb(220, 212, 212);
+            color: rgb(8, 12, 116);
+        }
+    </style>
+    <script>
+        function processNumbers() {
+            const num1 = parseInt(document.getElementById("num1").value);
+            const num2 = parseInt(document.getElementById("num2").value);
+            const num3 = parseInt(document.getElementById("num3").value);
+
+            if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+                document.getElementById("results").innerText = "Please enter valid numbers in all input boxes.";
+                return;
+            }
+
+            const sum = num1 + num2 + num3;
+            const average = sum / 3;
+            const product = num1 * num2 * num3;
+            const smallest = Math.min(num1, num2, num3);
+            const largest = Math.max(num1, num2, num3);
+
+            document.getElementById("results").innerText = 'Sum: ${sum}, Average: ${average}, Product: ${product}, Smallest: ${smallest}, Largest: ${largest}';
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <h2> Part 2 - Integer Operations</h2>
+    <form>
+        <label for="num1">Number 1:</label>
+        <input type="text" id="Num1">
+        <br>
+        <label for="num2">Number 2:</label>
+        <input type="text" id="Num2">
+        <br>
+        <label for="num3">Number 3:</label>
+        <input type="text" id="Num3">
+        <br>
+        <button type="button" onclick="processNumbers()">Process Data</button>
+        <button type="reset">Clear Form</button>
+    </form>
+    <div id="results"></div>
+    <a href="hw2.html">Homework 2</a>
+    <a href="index.html">Main Page</a>
+</body>
+
+</html>

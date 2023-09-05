@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Homework 2 - CIS 114">
+    <title>Extra Credit - Currency Conversion</title>
+    <style>
+        body {
+            background-color: white;
+            text-align: center;
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        td,
+        th {
+            border: 1px solid #ccc;
+        }
+
+        a {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 10px;
+            background-color: #2d9fae;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 13px;
+            width: 100px;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            background-color: rgb(220, 212, 212);
+            color: rgb(8, 12, 116);
+        }
+    </style>
+
+    <script>
+        function convertCurrency() {
+            const usdAmount = parseFloat(document.getElementById("usdAmount").value);
+
+            if (isNaN(usdAmount)) {
+                document.getElementById("results").innerText = "Please enter a valid amount in U.S. dollars.";
+                return;
+            }
+
+            const exchangeRates = {
+                "Euro": 0.84,
+                "Canadian Dollar": 1.23,
+                "Hong Kong Dollar": 7.76,
+                "Japanese Yen": 110.80,
+                "Mexican Peso": 19.82
+            };
+
+            const resultsTable = document.getElementById("resutsTable");
+
+            for (const currency in exchangeRates) {
+                const rate = exchangeRates[currency];
+                const convertedValue = (usdAmount * Rate).toFixed(2);
+
+                const row = resultsTable.insertRow(-1);
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+                const cell3 = row.insertCell(2);
+
+                cell1.textContent = currency;
+                cell2.textContent = rate;
+                cell3.textContent = convertedValue;
+                cell3.style.textAlign = "right";
+                cell3.setAttribute("readonly", "true");
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <h2>Extra Credit - Currency Conversion</h2>
+    <table class="center">
+        <tr>
+            <th>Currency</th>
+            <th>Rate</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Euro</td>
+            <td>0.84</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Canadian Dollar</td>
+            <td>1.23</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Hong Kong Dollar</td>
+            <td>7.76</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Japanese Yen</td>
+            <td>110.80</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Mexican Peso</td>
+            <td>19.82</td>
+            <td></td>
+        </tr>
+    </table>
+
+
+    <p><label for="usdAmount">Enter Amount of U.S. Dollars:</label><br>
+        <input type="text" id="usdAmount">
+        <button type="button" onclick="convertCurrency()">Convert</button>
+    <div id="results"></div>
+    </p>
+
+    <p>
+        <a href="hw2.html">Homework 2</a>
+        <a href="index.html">Main Page</a>
+    </p>
+</body>
+
+</html>
