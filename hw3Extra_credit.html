@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Homework 3 - JavaScript, AJAX">
+    <title>Part 3 - Multiplication Game</title>
+    <style>
+        body {
+            background-color: white;
+            text-align: center;
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        td,
+        th {
+            border: 1px solid #ccc;
+        }
+
+        a {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 10px;
+            background-color: #2d9fae;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            width: 100px;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            background-color: rgb(220, 212, 212);
+            color: rgb(8, 12, 116);
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Homework 3 - Functions</h1>
+    </header>
+    <!-- Extra Credit: Multiplication Game -->
+    <section>
+        <h2>Multiplication Game</h2>
+        <div id="questionArea">
+            <p id="question"></p>
+            <input type="number" id="answer">
+            <button onclick="checkAnswer()">Submit</button>
+        </div>
+        <div id="resultArea"></div>
+    </section>
+
+    <script>
+        let correctAnswer;
+
+        function generateQuestion() {
+            const num1 = Math.floor(Math.random() * 10); // Random number between 0 and 9
+            const num2 = Math.floor(Math.random() * 10); // Random number between 0 and 9
+            correctAnswer = num1 * num2;
+            document.getElementById('question').textContent = `How much is ${num1} times ${num2}?`;
+        }
+
+        function checkAnswer() {
+            const userAnswer = parseInt(document.getElementById('answer').value);
+
+            if (userAnswer === correctAnswer) {
+                document.getElementById('resultArea').textContent = "Very good!";
+                generateQuestion(); // Generate a new question 
+            } else {
+                document.getElementById('resultArea').textContent = "No. Please try again.";
+            }
+        }
+        // Start the game by generating the first question 
+        generateQuestion(); 
+    </script>
+    <br>
+    <br>
+    <br>
+    <p>
+        <a href="hw3.html">Homework 3</a>
+        <a href="index.html">Main Page</a>
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Homework 3 - JavaScript, AJAX">
+    <title>Part 2 - Sales Comisssion</title>
+    <style>
+        body {
+            background-color: white;
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 10px;
+            background-color: #2d9fae;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            width: 100px;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            background-color: rgb(220, 212, 212);
+            color: rgb(8, 12, 116);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Homework 3 - Functions</h1>
+    </header>
+
+
+    <!-- Part 2: Sales Commission -->
+    <section>
+        <h2>Sales Commission</h2>
+        <form id="salesForm">
+
+            <label for="salespersonName">Salesperson's Name:</label>
+            <input type="text" id="salespersonName"><br>
+
+            <label for="item1Qty">Item 1 Quantity Sold:</label>
+            <input type="number" id="item1Qty" min="0"><br>
+
+            <label for="item2Qty">Item 2 Quantity Sold:</label>
+            <input type="number" id="item2Qty" min="0"><br>
+
+            <label for="item3Qty">Item 3 Quantity Sold:</label>
+            <input type="number" id="item3Qty" min="0"><br>
+
+            <label for="item4Qty">Item 4 Quantity Sold:</label>
+            <input type="number" id="item4Qty" min="0"><br>
+
+            <button type="button" onclick="calculateEarnings()">Calculate</button>
+        </form>
+
+        <div>
+            <h3>Total Sold: $<span id="totalSales">0.00</span></h3>
+            <h3>Total Earnings: $<span id="totalEarnings">0.00</span></h3>
+        </div>
+    </section>
+
+    <script>
+        function calculateEarnings() {
+            const item1Qty = parseInt(document.getElementById('item1Qty').value);
+            const item2Qty = parseInt(document.getElementById('item2Qty').value);
+            const item3Qty = parseInt(document.getElementById('item3Qty').value);
+            const item4Qty = parseInt(document.getElementById('item4Qty').value);
+
+
+            // Check for valid input
+            if (isNaN(item1Qty) || isNaN(item2Qty) || isNaN(item3Qty) || isNaN(item4Qty) ||
+                item1Qty < 0 || item2Qty < 0 || item3Qty < 0 || item4Qty < 0) {
+                alert("Invalid input. Quantity sold should be a non-negative number.");
+                return;
+            }
+
+
+            // Define item values
+            const item1Value = 20.99;
+            const item2Value = 12.75;
+            const item3Value = 9.95;
+            const item4Value = 35.89;
+
+
+            // Calculate total sales and earnings
+            const totalSales = (item1Qty * item1Value) + (item2Qty * item2Value) + (item3Qty * item3Value) + (item4Qty * item4Value);
+            const totalEarnings = 250 + (0.09 * totalSales);
+
+            // Update the display
+            document.getElementById('totalSales').textContent = totalSales.toFixed(2);
+            document.getElementById('totalEarnings').textContent = totalEarnings.toFixed(2);
+        }
+
+    </script>
+    <br>
+    <br>
+    <br>
+
+    <a href="hw3.html">Homework 3</a>
+    <a href="index.html">Main Page</a>
+</body>
+
+</html>
