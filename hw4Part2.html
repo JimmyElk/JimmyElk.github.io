@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Compound Interest</title>
+    <meta name="description" content="Homework 4 - JavaScript AJAX">
+    <style>
+        body {
+            background-color: white;
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 10px;
+            background-color: #2d9fae;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            width: 100px;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            background-color: rgb(220, 212, 212);
+            color: rgb(8, 12, 116);
+        }
+
+        .table-container {
+
+            display: flex;
+
+            justify-content: space-around;
+
+            margin: 20px;
+
+        }
+
+
+
+        .table {
+
+            border-collapse: collapse;
+
+            background-color: white;
+
+            border: 2px solid #333;
+
+            margin: 10px;
+
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+            border-radius: 10px;
+
+        }
+
+
+
+        .table th,
+        .table td {
+
+            padding: 10px;
+
+            text-align: center;
+
+        }
+
+
+
+        .table th {
+
+            background-color: #333;
+
+            color: white;
+
+        }
+
+
+
+        .table tr:nth-child(odd) {
+
+            background-color: #f2f2f2;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Learn about compound interest</h1>
+
+
+
+    <div class="table-container">
+
+        <!-- Table for 5% interest rate -->
+
+        <table class="table">
+
+            <caption>Interest Rate: 5%</caption>
+
+            <thead>
+
+                <tr>
+
+                    <th>Year</th>
+
+                    <th>Amount on deposit</th>
+
+                    <th>Interest Rate</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <script>
+
+                    var principal5 = 1000;
+
+                    var rate5 = 0.05;
+
+                    for (var year5 = 1; year5 <= 5; year5++) {
+
+                        var amount5 = principal5 * Math.pow(1 + rate5, year5);
+
+                        document.write("<tr><td>" + year5 + "</td><td>" + amount5.toFixed(2) + "</td><td>" + (rate5 * 100) + "%</td></tr>");
+
+                    }
+
+                </script>
+
+            </tbody>
+
+        </table>
+
+
+
+        <!-- Table for 6% interest rate -->
+
+        <table class="table">
+
+            <caption>Interest Rate: 6%</caption>
+
+            <thead>
+
+                <tr>
+
+                    <th>Year</th>
+
+                    <th>Amount on deposit</th>
+
+                    <th>Interest Rate</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <script>
+
+                    var principal6 = 1000;
+
+                    var rate6 = 0.06;
+
+                    for (var year6 = 1; year6 <= 5; year6++) {
+
+                        var amount6 = principal6 * Math.pow(1 + rate6, year6);
+
+                        document.write("<tr><td>" + year6 + "</td><td>" + amount6.toFixed(2) + "</td><td>" + (rate6 * 100) + "%</td></tr>");
+
+                    }
+
+                </script>
+
+            </tbody>
+
+        </table>
+
+
+
+        <!-- Table for 7% interest rate -->
+
+        <table class="table">
+
+            <caption>Interest Rate: 7%</caption>
+
+            <thead>
+
+                <tr>
+
+                    <th>Year</th>
+
+                    <th>Amount on deposit</th>
+
+                    <th>Interest Rate</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <script>
+
+                    var principal7 = 1000;
+
+                    var rate7 = 0.07;
+
+                    for (var year7 = 1; year7 <= 5; year7++) {
+
+                        var amount7 = principal7 * Math.pow(1 + rate7, year7);
+
+                        document.write("<tr><td>" + year7 + "</td><td>" + amount7.toFixed(2) + "</td><td>" + (rate7 * 100) + "%</td></tr>");
+
+                    }
+
+                </script>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <a href="hw4.html">Homework 4</a>
+    <a href="index.html">Main Page</a>
+
+</body>
+
+</html>

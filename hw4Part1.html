@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta Charset="UTF-8">
+    <title>JavaScript - Looping Statements</title>
+    <meta name="description" content="Homework 4 - JavaScript AJAX">
+    <style>
+        body {
+            background-color: white;
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 10px;
+            background-color: #2d9fae;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            width: 100px;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            background-color: rgb(220, 212, 212);
+            color: rgb(8, 12, 116);
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Part 1 - Looping Statements</h1>
+
+    <h2>Using for loop</h2>
+
+    <div id="forResults"></div>
+
+
+
+    <h2>Using while loop</h2>
+
+    <div id="whileResults"></div>
+
+
+
+    <script>
+
+        var productFor = 1;
+
+        var sumFor = 0;
+
+        var productWhile = 1;
+
+        var sumWhile = 0;
+
+
+
+        // Using for loop to calculate product and sum of every fourth integer
+
+        for (var i = 5; i <= 25; i += 4) {
+
+            productFor *= i;
+
+            sumFor += i;
+
+        }
+
+
+
+        // Using while loop to calculate product and sum of every third integer
+
+        var j = 3;
+
+        while (j <= 18) {
+
+            productWhile *= j;
+
+            sumWhile += j;
+
+            j += 3;
+
+        }
+
+
+
+        // Displaying results with toLocaleString()
+
+        var forResults = "The result of " + Array.from({ length: 6 }, (_, i) => 5 + i * 4).join(" * ") + " is " + productFor.toLocaleString() + "<br>";
+
+        forResults += "The result of " + Array.from({ length: 6 }, (_, i) => 5 + i * 4).join(" + ") + " is " + sumFor.toLocaleString();
+
+        document.getElementById("forResults").innerHTML = forResults;
+
+
+
+        var whileResults = "The result of " + Array.from({ length: 6 }, (_, i) => 3 + i * 3).join(" * ") + " is " + productWhile.toLocaleString() + "<br>";
+
+        whileResults += "The result of " + Array.from({ length: 6 }, (_, i) => 3 + i * 3).join(" + ") + " is " + sumWhile.toLocaleString();
+
+        document.getElementById("whileResults").innerHTML = whileResults;
+
+    </script>
+    <a href="hw4.html">Homework 4</a>
+    <a href="index.html">Main Page</a>
+</body>
+
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Extra Credit;
+    </title>
+    <meta name="description" content="Homework 4 - JavaScript AJAX">
+    <style>
+        body {
+            background-color: white;
+            text-align: center;
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        td,
+        th {
+            border: 1px solid #ccc;
+        }
+
+        a {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 10px;
+            background-color: #2d9fae;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            width: 100px;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            background-color: rgb(220, 212, 212);
+            color: rgb(8, 12, 116);
+        }
+
+        pre {
+            font-family: monospace;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Extra Credit</h1>
+
+    <form id="squareForm">
+
+        <label for="inputNumber">Enter a number (2-10): </label>
+
+        <input type="number" id="inputNumber" min="2" max="10">
+
+        <button id="processButton" type="button">Generate Square</button>
+
+        <button id="clearButton" type="button">Clear</button>
+
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+
+        document.getElementById("processButton").addEventListener("click", function () {
+
+            var inputNumber = document.getElementById("inputNumber").value;
+
+            var result = document.getElementById("result");
+
+
+
+            if (inputNumber >= 2 && inputNumber <= 10) {
+
+                result.innerHTML = generateHollowSquare(inputNumber);
+
+            } else {
+
+                result.innerHTML = "Invalid input. Please enter a number between 2 and 10.";
+
+            }
+
+        });
+
+
+
+        document.getElementById("clearButton").addEventListener("click", function () {
+
+            document.getElementById("inputNumber").value = "";
+
+            document.getElementById("result").innerHTML = "";
+
+        });
+
+
+
+        function generateHollowSquare(size) {
+
+            var square = "";
+
+            for (var i = 1; i <= size; i++) {
+
+                for (var j = 1; j <= size; j++) {
+
+                    if (i === 1 || i === size || j === 1 || j === size) {
+
+                        square += "* ";
+
+                    } else {
+
+                        square += "&nbsp;&nbsp;";
+
+                    }
+
+                }
+
+                square += "<br>";
+
+            }
+
+            return "<pre>" + square + "</pre>";
+
+        }
+
+
+
+        document.getElementById("squareForm").addEventListener("submit", function (e) {
+
+            e.preventDefault(); // Prevent form submission
+
+        });
+
+    </script>
+
+    <a href="hw4.html">Homework 4</a>
+    <a href="index.html">Main Page</a>
+</body>
+
+</html>
