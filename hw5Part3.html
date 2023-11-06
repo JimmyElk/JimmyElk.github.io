@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Arrays</title>
+    <meta name="description" content="Homework 5 - JavaScript AJAX">
+    <style>
+        body {
+            text-align: center;
+            line-height: 25px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .message {
+            color: rgb(51, 153, 146)
+        }
+
+        a {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 10px;
+            background-color: #2d9fae;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            width: 100px;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            background-color: rgb(220, 212, 212);
+            color: rgb(8, 12, 116);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h2 id="part3">Part 3 - State Info</h2>
+
+    <form id="stateForm">
+
+        <label for="stateInput">Enter State Name or Abbreviation:</label><br>
+
+        <input type="text" id="stateInput" name="stateInput"><br>
+
+
+
+        <button type="button" id="submitState">Get State Info</button><br>
+
+        <button type="button" id="clearState">Clear</button><br>
+
+    </form>
+
+
+
+    <div id="stateInfo"></div>
+
+
+
+    <script>
+
+        // JavaScript code to handle state information lookup
+
+        const stateForm = document.getElementById('stateForm');
+
+        const stateInfoDiv = document.getElementById('stateInfo');
+
+
+
+        const stateData = [
+
+            { stateAbbr: 'AL', stateName: 'Alabama', capital: 'Montgomery', population: '4,903,185' },
+
+            { stateAbbr: 'AK', stateName: 'Alaska', capital: 'Juneau', population: '731,545' },
+
+            { stateAbbr: 'AZ', stateName: 'Arizona', capital: 'Phoenix', population: '7,278,717' },
+
+            { stateAbbr: 'AR', stateName: 'Arkansas', capital: 'Little Rock', population: '3,017,825' },
+
+            { stateAbbr: 'CA', stateName: 'California', capital: 'Sacramento', population: '39,512,223' },
+
+            { stateAbbr: 'CO', stateName: 'Colorado', capital: 'Denver', population: '5,758,736' },
+
+
+
+        ];
+
+
+
+        const submitStateButton = document.getElementById('submitState');
+
+        submitStateButton.addEventListener('click', () => {
+
+            const stateInput = document.getElementById('stateInput').value.toUpperCase();
+
+            const foundState = stateData.find(state => state.stateAbbr === stateInput || state.stateName.toUpperCase() === stateInput);
+
+
+
+            if (foundState) {
+
+                const stateInfo = `
+
+                    <p class="message">Thanks for your inquiry, here is the information you requested:</p>
+
+                    <p>State abbr = ${foundState.stateAbbr}</p>
+
+                    <p>State Name = ${foundState.stateName}</p>
+
+                    <p>Capital = ${foundState.capital}</p>
+
+                    <p>Population = ${foundState.population}</p>
+
+                `;
+
+                stateInfoDiv.innerHTML = stateInfo;
+
+            } else {
+
+                stateInfoDiv.innerHTML = '<p class="error">Sorry, we do not have information about this state! We only have information about Alabama, Alaska, Arizona, Arkansas, California and Colorado.</p>';
+
+            }
+
+        });
+
+
+
+        const clearStateButton = document.getElementById('clearState');
+
+        clearStateButton.addEventListener('click', () => {
+
+            // Clear the form and state info
+
+            stateForm.reset();
+
+            stateInfoDiv.innerHTML = '';
+
+        });
+
+    </script>
+
+    <br>
+
+    <a href="hw5.html">Homework 5</a>
+    <a href="index.html">Main Page</a>
+</body>
+
+</html>

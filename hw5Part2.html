@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Arrays</title>
+    <meta name="description" content="Homework 5 - JavaScript AJAX">
+    <style>
+        body {
+            text-align: center;
+            line-height: 25px;
+        }
+
+        a {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 10px;
+            background-color: #2d9fae;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            width: 100px;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            background-color: rgb(220, 212, 212);
+            color: rgb(8, 12, 116);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2 id="part2">Part 2 - Pulldown Menus</h2>
+
+
+
+    <label for="menu1">Select a website:</label>
+
+    <br>
+
+    <select id="menu1"><br>
+
+        <option value="http://google.com">Google</option>
+
+        <option value="http://yahoo.com">Yahoo</option><br>
+
+    </select>
+
+    <br>
+
+    <button id="openWebsite1">Open Website</button><br>
+
+    <br>
+
+    <label for="menu2">Select another website:</label>
+
+    <br>
+
+    <select id="menu2"><br>
+
+        <option value="http://amazon.com">Amazon</option>
+
+        <option value="http://youtube.com">Youtube</option><br>
+
+    </select>
+
+    <br>
+
+    <button id="openWebsite2">Open Website</button><br>
+
+
+
+    <script>
+
+        // JavaScript code to handle pulldown menus
+
+        const openWebsiteButton1 = document.getElementById('openWebsite1');
+
+        const openWebsiteButton2 = document.getElementById('openWebsite2');
+
+
+
+        openWebsiteButton1.addEventListener('click', () => {
+
+            const menu1 = document.getElementById('menu1');
+
+            const selectedOption1 = menu1.options[menu1.selectedIndex];
+
+            window.open(selectedOption1.value, '_blank');
+
+        });
+
+
+
+        openWebsiteButton2.addEventListener('click', () => {
+
+            const menu2 = document.getElementById('menu2');
+
+            const selectedOption2 = menu2.options[menu2.selectedIndex];
+
+            window.open(selectedOption2.value, '_blank');
+
+        });
+
+    </script>
+
+    <br>
+
+    <a href="hw5.html">Homework 5</a>
+    <a href="index.html">Main Page</a>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Arrays</title>
+    <meta name="description" content="Homework 5 - JavaScript AJAX">
+    <style>
+        body {
+            text-align: center;
+            line-height: 25px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        a {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 10px;
+            background-color: #2d9fae;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            width: 100px;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            background-color: rgb(220, 212, 212);
+            color: rgb(8, 12, 116);
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="part1">Part 1 - User Data</h2>
+
+    <form id="userForm">
+
+        <label for="fullName">Full Name:</label><br>
+
+        <input type="text" id="fullName" name="fullName" required><br>
+
+        <br>
+
+        <label>Age Group:</label><br>
+
+        <input type="radio" id="ageGroup1" name="ageGroup" value="lessThan21"> <label for="ageGroup1">Less than
+            21</label><br>
+
+        <input type="radio" id="ageGroup2" name="ageGroup" value="21to50"> <label for="ageGroup2">21 to 50</label><br>
+
+        <input type="radio" id="ageGroup3" name="ageGroup" value="olderThan50"> <label for="ageGroup3">Older than
+            50</label><br>
+
+        <br>
+
+        <label>Browsers Used:</label><br>
+
+        <input type="checkbox" id="firefox" name="browsers" value="Firefox"> <label for="firefox">Firefox</label><br>
+
+        <input type="checkbox" id="edge" name="browsers" value="Edge"> <label for="edge">Edge</label><br>
+
+        <input type="checkbox" id="chrome" name="browsers" value="Chrome"> <label for="chrome">Chrome</label><br>
+
+        <input type="checkbox" id="safari" name="browsers" value="Safari"> <label for="safari">Safari</label><br>
+
+        <br>
+
+        <label for="movieType">Preferred Movie Type:</label><br>
+
+        <select id="movieType" name="movieType" required><br>
+
+
+
+            <option value="">Select a movie type</option><br>
+
+            <option value="Action">Action</option><br>
+
+            <option value="Comedy">Comedy</option><br>
+
+            <option value="Drama">Drama</option><br>
+
+            <option value="Documentary">Documentary</option><br>
+
+            <option value="ScienceFiction">Science Fiction</option><br>
+
+        </select>
+
+        <br>
+
+        <button type="button" id="submitForm">Submit</button><br>
+        <br>
+        <button type="button" id="clearForm">Clear</button><br>
+        <br>
+    </form>
+
+
+
+    <div id="outputArea"></div>
+
+
+
+    <script>
+
+        // JavaScript code for form validation and handling
+
+        const userForm = document.getElementById('userForm');
+
+        const outputArea = document.getElementById('outputArea');
+
+
+
+        const submitFormButton = document.getElementById('submitForm');
+
+        submitFormButton.addEventListener('click', () => {
+
+            // Reset error message
+
+            outputArea.innerHTML = '';
+
+
+
+            // Get form elements
+
+            const fullName = document.getElementById('fullName');
+
+            const ageGroup = document.querySelector('input[name="ageGroup"]:checked');
+
+            const browsers = document.querySelectorAll('input[name="browsers"]:checked');
+
+            const movieType = document.getElementById('movieType');
+
+
+
+            // Check if all fields are filled
+
+            if (fullName.value === '' || !ageGroup || browsers.length === 0 || movieType.value === '') {
+
+                outputArea.innerHTML = '<p class="error">Please fill out all fields.</p>';
+
+            } else {
+
+                outputArea.innerHTML = 'Thanks, your data was submitted!';
+
+            }
+
+        });
+
+
+
+        const clearFormButton = document.getElementById('clearForm');
+
+        clearFormButton.addEventListener('click', () => {
+
+            // Clear the form
+
+            userForm.reset();
+
+            outputArea.innerHTML = '';
+
+        });
+
+    </script>
+
+    <br>
+    <a href="hw5.html">Homework 5</a>
+    <a href="index.html">Main Page</a>
+</body>
+
+</html>
