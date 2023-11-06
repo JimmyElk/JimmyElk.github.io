@@ -41,13 +41,13 @@
 
     <form id="userForm">
 
-        <label for="fullName">Full Name:</label><br>
+        <label for="fullName"><i>Full Name:</i></label><br>
 
         <input type="text" id="fullName" name="fullName" required><br>
 
         <br>
 
-        <label>Age Group:</label><br>
+        <label><i>Age Group:</i></label><br>
 
         <input type="radio" id="ageGroup1" name="ageGroup" value="lessThan21"> <label for="ageGroup1">Less than
             21</label><br>
@@ -59,7 +59,7 @@
 
         <br>
 
-        <label>Browsers Used:</label><br>
+        <label><i>Browsers Used:</i></label><br>
 
         <input type="checkbox" id="firefox" name="browsers" value="Firefox"> <label for="firefox">Firefox</label><br>
 
@@ -71,13 +71,13 @@
 
         <br>
 
-        <label for="movieType">Preferred Movie Type:</label><br>
+        <label for="movieType"><i>Preferred Movie Type:</i></label><br>
 
         <select id="movieType" name="movieType" required><br>
 
 
 
-            <option value="">Select a movie type</option><br>
+            <option value=""><i>Select a movie type:</i></option><br>
 
             <option value="Action">Action</option><br>
 
@@ -89,14 +89,15 @@
 
             <option value="ScienceFiction">Science Fiction</option><br>
 
-        </select>
-
+        </select><br>
         <br>
+
+
 
         <button type="button" id="submitForm">Submit</button><br>
-        <br>
-        <button type="button" id="clearForm">Clear</button><br>
-        <br>
+
+        <button type="button" id="clearForm">Clear</button>
+
     </form>
 
 
