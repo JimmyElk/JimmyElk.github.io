@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta Charset="UTF-8">
+    <title>JavaScript - Objects</title>
+    <meta name="description" content="Homework 6 - JavaScript AJAX">
+    <style>
+        body {
+            background-color: white;
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 10px 10px 10px;
+            background-color: #2d9fae;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            width: 130px;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        .ab {
+            margin-top: 50px;
+        }
+
+        a:hover {
+            background-color: rgb(220, 212, 212);
+            color: rgb(8, 12, 116);
+        }
+
+        .output {
+            color: blue;
+
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Part 1 - Number Processing</h1>
+
+
+    <form id="numberForm">
+
+        <label for="numberInput">Enter a number with 4 decimals:</label>
+
+        <input type="text" id="numberInput" required pattern="\d+(\.\d{4})?">
+
+        <br>
+        <p>
+            <button type="button" onclick="calculate()">Submit</button>
+
+            <button type="button" onclick="clearForm()">Clear</button>
+        </p>
+    </form>
+
+
+
+    <div id="outputArea" class="output"></div>
+
+    <script>
+
+        function calculate() {
+
+            const inputElement = document.getElementById('numberInput');
+
+            const outputArea = document.getElementById('outputArea');
+
+            const inputValue = parseFloat(inputElement.value);
+
+
+
+            if (isNaN(inputValue) || inputValue.toFixed(4) !== inputElement.value) {
+
+                outputArea.innerHTML = '<p class="error">You need to type a number with at least 4 decimals, please try again.</p>';
+
+                return;
+
+            }
+
+
+
+            const roundedInteger = Math.round(inputValue);
+
+            const squareRootInteger = Math.round(Math.sqrt(inputValue));
+
+            const roundedTenths = inputValue.toFixed(1);
+
+            const roundedHundredths = inputValue.toFixed(2);
+
+            const roundedThousandths = inputValue.toFixed(3);
+
+
+
+            outputArea.innerHTML = `
+    
+            <p class="output">You typed number ${inputElement.value}</p>
+    
+            <p class="output">Rounded to the nearest integer = ${roundedInteger}</p>
+    
+            <p class="output">Square root rounded to integer = ${squareRootInteger}</p>
+    
+            <p class="output">Rounded to the nearest 10th position = ${roundedTenths}</p>
+    
+            <p class="output">Rounded to the nearest 100th position = ${roundedHundredths}</p>
+    
+            <p class="output">Rounded to the nearest 1000th position = ${roundedThousandths}</p>
+    
+          `;
+
+        }
+
+
+
+        function clearForm() {
+
+            document.getElementById('numberForm').reset();
+
+            document.getElementById('outputArea').innerHTML = '';
+
+        }
+
+    </script>
+
+
+    <a class="ab" href="hw6Part2.html">Part 2 - Chacacter Search</a>
+    <a href="hw6Part3.html"> Part 3 - Phone Number Formatting</a>
+    <a href="index.html">Main page</a>
+</body>
+
+
+</html>

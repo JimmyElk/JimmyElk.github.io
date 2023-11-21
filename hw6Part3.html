@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta Charset="UTF-8">
+    <title>JavaScript - Objects</title>
+    <meta name="description" content="Homework 6 - JavaScript AJAX">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI/tZ1a9YHJlM/5N7ZrO7O/Z5KBLzwj3nRJfS0qE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+
+    <style>
+        body {
+            background-color: white;
+            text-align: center;
+        }
+
+        .ab {
+            margin-top: 50px;
+        }
+
+        a {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 10px;
+            background-color: #2d9fae;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            width: 130px;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            background-color: rgb(220, 212, 212);
+            color: rgb(8, 12, 116);
+        }
+
+        .errorMsg {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Part 3 - Phone Number Formatter</h1>
+
+
+
+    <form id="part3Form">
+        <p>
+            <label for="phoneNumberInput">Type the phone number (e.g., (999) 999-9999):</label>
+            <input type="text" id="phoneNumberInput" required pattern="\(\d{3}\) \d{3}-\d{4}"
+                placeholder="(999) 999-9999">
+
+
+
+            <button type="button" onclick="processPhoneNumber()">Start Process</button>
+            <button type="button" onclick="clearPhoneNumber()">Clear Form</button>
+        </p>
+
+        <p>
+        <div id="errorMsg"></div>
+        </p>
+
+        <p>
+            <label for="areaCodeOutput">Area Code:</label>
+            <input type="text" id="areaCodeOutput" readonly>
+
+
+
+            <label for="firstThreeDigitsOutput">First 3 Digits:</label>
+            <input type="text" id="firstThreeDigitsOutput" readonly>
+
+
+
+            <label for="lastFourDigitsOutput">Last 4 Digits:</label>
+            <input type="text" id="lastFourDigitsOutput" readonly>
+        </p>
+    </form>
+
+    <script>
+        function processPhoneNumber() {
+
+            var phoneNumber = document.getElementById('phoneNumberInput').value;
+
+
+
+            // Validate if the phone number is in the correct format
+
+            var phoneRegex = /^\(\d{3}\) \d{3}-\d{4}$/;
+
+            if (phoneRegex.test(phoneNumber)) {
+
+                // Use regex and split to extract area code, first three digits, and last four digits
+
+                var match = phoneNumber.match(/\d/g);
+
+                var areaCode = match.slice(0, 3).join('');
+
+                var firstThreeDigits = match.slice(3, 6).join('');
+
+                var lastFourDigits = match.slice(6).join('');
+
+
+
+                // Display results in the corresponding input boxes
+
+                document.getElementById('areaCodeOutput').value = areaCode;
+
+                document.getElementById('firstThreeDigitsOutput').value = firstThreeDigits;
+
+                document.getElementById('lastFourDigitsOutput').value = lastFourDigits;
+
+
+
+                // Clear any previous error messages
+
+                document.getElementById('errorMsg').textContent = '';
+
+            } else {
+
+                // Display error message for invalid phone number format
+
+                document.getElementById('errorMsg').textContent = 'Please type the phone number in the format (999) 999-9999.';
+
+                // Clear the output input boxes
+
+                document.getElementById('areaCodeOutput').value = '';
+
+                document.getElementById('firstThreeDigitsOutput').value = '';
+
+                document.getElementById('lastFourDigitsOutput').value = '';
+
+            }
+
+        }
+
+
+
+        function clearPhoneNumber() {
+
+            // Clear the form
+
+            document.getElementById('part3Form').reset();
+
+            // Clear the error message
+
+            document.getElementById('errorMessageBox').textContent = '';
+
+            // Clear the output input boxes
+
+            document.getElementById('areaCodeOutput').value = '';
+
+            document.getElementById('firstThreeDigitsOutput').value = '';
+
+            document.getElementById('lastFourDigitsOutput').value = '';
+
+        }
+
+
+    </script>
+
+    <a class="ab" href="hw6Part1.html">Part 1 - Number Processing</a>
+    <a href="hw6Part2.html">Part 2 - Chacacter Search</a>
+    <a href="index.html">Main page</a>
+
+</body>
+
+
+</html>

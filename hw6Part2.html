@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta Charset="UTF-8">
+    <title>JavaScript - Objects</title>
+    <meta name="description" content="Homework 6 - JavaScript AJAX">
+    <style>
+        body {
+            background-color: white;
+            text-align: center;
+        }
+
+        .ab {
+            margin-top: 50px;
+        }
+
+        a {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 10px;
+            background-color: #2d9fae;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            width: 130px;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            background-color: rgb(220, 212, 212);
+            color: rgb(8, 12, 116);
+        }
+
+        .output {
+            color: blue;
+        }
+
+        #errorArea {
+            color: red;
+        }
+
+        label {
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Part 2 - Character Search</h1>
+
+
+
+    <form id="searchForm">
+        <p>
+            <label for="textContent">Enter long content:</label>
+            <textarea id="textContent" rows="4" cols="50"></textarea>
+        </p>
+        <p>
+            <label for="searchChar">Enter a single character:</label>
+            <input type="text" id="searchChar" maxlength="1">
+        </p>
+        <p>
+            <button type="button" onclick="searchCharacter()">Submit</button>
+        </p>
+    </form>
+
+
+
+    <div id="outputArea" class="output"></div>
+    <div id="errorArea" class="error"></div>
+
+    <script>
+
+        function searchCharacter() {
+
+            const content = document.getElementById('textContent').value.toLowerCase();
+
+            const searchChar = document.getElementById('searchChar').value.toLowerCase();
+
+
+
+            if (searchChar.length === 1) {
+
+                const count = (content.match(new RegExp(searchChar, 'gi')) || []).length;
+
+
+
+                if (count > 0) {
+
+                    document.getElementById('outputArea').innerHTML = `<p class="output">Character '${searchChar}' appears ${count} times in the content.</p>`;
+
+                } else {
+
+                    const newWindow = window.open('', '_blank', 'width=300, height=100, top=100, left=100');
+
+                    newWindow.document.write(`<p>Search character '${searchChar}' not found in the content you typed.</p>`);
+
+                    newWindow.document.write('<button style="display: block; margin: 10px auto;" onclick="window.close()"">Close</button>');
+
+                    // Clear the textarea after closing the new window
+
+                    newWindow.addEventListener('beforeunload', function () {
+
+                        document.getElementById('searchForm').reset();
+
+                    });
+
+                }
+
+            } else {
+
+                document.getElementById('errorArea').innerHTML = '<p class="error">Please enter a single character for search.</p>';
+                //Clear the error message after 3 seconds
+
+                setTimeout(function () {
+                    document.getElementById('errorArea').innerHTML = '';
+                }, 3000);
+            }
+
+        }
+
+    </script>
+
+
+
+    <a class="ab" href="hw6Part1.html">Part 1 - Number Processing</a>
+    <a href="hw6Part3.html"> Part 3 - Phone Number Formatting</a>
+    <a href="index.html">Main page</a>
+</body>
+
+
+</html>
