@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Object Model</title>
+    <meta name="description" content="Homework 7 - JavaScript AJAX">
+    <style>
+        body {
+            text-align: center;
+            line-height: 30px;
+
+        }
+
+        a {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 10px;
+            background-color: #2d9fae;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            width: 100px;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            background-color: rgb(220, 212, 212);
+            color: rgb(8, 12, 116);
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="part1">Part 1 - Object Model</h2>
+
+    <div id="styleArea">
+
+        <p>
+            <strong>Christmas</strong>, the most wonderful time of the year, brings warmth and joy to our hearts
+        </p>
+
+        <p>The air is filled with the delightful scent of pine, as families gather around beautifully adorned Christmas
+            trees.
+            Twinkling lights dance merrily, casting a magical glow on homes adorned with festive decorations.<br>
+            Children eagerly anticipate the arrival of Santa Claus, hoping for surprises and gifts beneath the tree.<br>
+            Hearty laughter, the clinking of glasses, and the aroma of delicious feasts create a festive symphony.<br>
+            It's a season of giving, where acts of kindness and generosity illuminate the spirit of Christmas.<br>
+            As snowflakes gently fall, the world transforms into a winter wonderland, echoing the joy of the season.</p>
+
+        <p><strong>May this Christmas bring you love, peace, and unforgettable moments with those you hold
+                dear.</strong></p>
+
+    </div>
+
+    <form id="styleForm">
+
+        <label>
+
+            <input type="checkbox" name="backgroundColor" value="red"> Red
+
+        </label><br>
+
+        <label>
+
+            <input type="checkbox" name="backgroundColor" value="green"> Green
+
+        </label><br>
+
+        <label>
+
+            <input type="checkbox" name="textDecoration" value="underline"> Underline
+
+        </label><br>
+
+        <label>
+
+            <input type="checkbox" name="fontWeight" value="bold"> Bold
+
+        </label><br>
+
+        <label>
+
+            <input type="checkbox" name="fontStyle" value="italic"> Italic
+
+        </label><br>
+
+        <label>
+
+            Font Size:
+
+            <select name="fontSize">
+
+                <option value="1em">1em</option>
+
+                <option value="1.5em">1.5em</option>
+
+                <option value="2em">2em</option>
+
+            </select>
+
+        </label><br>
+
+        <label>
+
+            Font Color:
+
+            <input type="color" name="fontColor">
+
+        </label><br>
+
+        <label>
+
+            Text Alignment:
+
+            <select name="textAlignment">
+
+                <option value="left">Left</option>
+
+                <option value="center">Center</option>
+
+                <option value="right">Right</option>
+
+            </select>
+
+        </label><br>
+
+    </form>
+
+
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const styleForm = document.getElementById('styleForm');
+
+        const styleArea = document.getElementById('styleArea');
+
+
+
+        styleForm.addEventListener('change', function () {
+
+            const selectedColor = document.querySelector('input[name="backgroundColor"]:checked')?.value;
+
+            const textDecoration = document.querySelector('input[name="textDecoration"]:checked')?.value;
+
+            const fontWeight = document.querySelector('input[name="fontWeight"]:checked')?.value;
+
+            const fontStyle = document.querySelector('input[name="fontStyle"]:checked')?.value;
+
+            const fontSize = styleForm.elements.fontSize.value;
+
+            const fontColor = styleForm.elements.fontColor.value;
+
+            const textAlignment = styleForm.elements.textAlignment.value;
+
+
+
+
+
+            styleArea.style.backgroundColor = selectedColor || '';
+
+            styleArea.style.textDecoration = textDecoration || '';
+
+            styleArea.style.fontWeight = fontWeight || '';
+
+            styleArea.style.fontStyle = fontStyle || '';
+
+            styleArea.style.fontSize = fontSize || '';
+
+            styleArea.style.color = fontColor || '';
+
+            styleArea.style.textAlign = textAlignment || '';
+
+        });
+
+    });
+
+
+</script>
+
+
+<a href="hw7.html">Homework 7</a>
+<a href="hw7Part2.html">Part 2 - Cookies</a>
+<a href="index.html">Main Page</a>
+</body>
+
+</html>

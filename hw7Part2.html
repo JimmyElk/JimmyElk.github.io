@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Cookies</title>
+    <meta name="description" content="Homework 7 - JavaScript AJAX">
+    <style>
+        body {
+            text-align: center;
+            line-height: 25px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 35px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+
+        form {
+            margin-top: 20px;
+
+        }
+
+
+
+        label {
+            text-align: left;
+            display: block;
+            margin-bottom: 5px;
+
+        }
+
+
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+
+
+        button {
+            background-color: lightgray;
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #saveMessage {
+            color: red;
+            line-height: 5;
+        }
+
+        button:hover {
+            background-color: rgb(220, 212, 212);
+            color: rgb(8, 12, 116);
+        }
+
+
+        a {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 10px;
+            background-color: #2d9fae;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            width: 100px;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            background-color: rgb(220, 212, 212);
+            color: rgb(8, 12, 116);
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="part2">Part 2 - Cookies</h2>
+
+    <div class="container">
+
+        <div id="content">
+
+            <!-- Content goes here -->
+
+        </div>
+
+        <form id="cookieForm">
+
+            <label for="name">Enter your name:</label>
+
+            <input type="text" id="name" name="name" required>
+
+            <label for="username">Enter your username:</label>
+
+            <input type="text" id="username" name="username" required>
+
+
+        </form>
+
+        <button id="saveCookiesBtn" type="button">Save Cookies</button>
+
+        <div id="saveMessage">
+
+            <!-- Message goes here -->
+
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const contentDiv = document.getElementById('content');
+
+        const cookieForm = document.getElementById('cookieForm');
+
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        const saveMessage = document.getElementById('saveMessage');
+
+
+
+        // Check if cookies exist
+
+        const nameCookie = getCookie('name');
+
+        const usernameCookie = getCookie('username');
+
+
+
+        if (nameCookie && usernameCookie) {
+
+            // Display welcome message if cookies exist
+
+            contentDiv.innerHTML = `<p>Welcome back, <strong>${nameCookie}</strong>!</p>`;
+
+        }
+
+
+
+        function saveCookies() {
+
+            const nameInput = document.getElementById('name').value;
+
+            const usernameInput = document.getElementById('username').value;
+
+
+
+            // Save cookies
+
+            setCookie('name', nameInput);
+
+            setCookie('username', usernameInput);
+
+
+
+            // Display welcome message
+
+            contentDiv.innerHTML = `<p>Welcome, ${nameInput}!</p>`;
+
+
+
+            // Display save message
+
+            saveMessage.textContent = 'Cookies were saved!';
+
+
+
+            setTimeout(() => {
+
+                saveMessage.textContent = '';
+
+            }, 10000); // Clear message after 10 seconds (10000 milliseconds)
+
+        }
+
+
+
+        function logout() {
+
+            // Clear cookies
+
+            document.cookie = 'name=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+
+            document.cookie = 'username=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+
+
+
+            // Clear content and show form
+
+            contentDiv.innerHTML = '';
+
+            cookieForm.reset();
+
+
+
+            // Clear save message
+
+            saveMessage.textContent = '';
+
+        }
+
+
+
+        // Function to set a cookie
+
+        function setCookie(name, value) {
+
+            document.cookie = `${name}=${value}; path=/`;
+
+        }
+
+
+
+        // Function to get a cookie by name
+
+        function getCookie(name) {
+
+            const cookieName = `${name}=`;
+
+            const cookies = document.cookie.split(';');
+
+
+
+            for (let i = 0; i < cookies.length; i++) {
+
+                let cookie = cookies[i].trim();
+
+                if (cookie.startsWith(cookieName)) {
+
+                    return cookie.substring(cookieName.length);
+
+                }
+
+            }
+
+
+
+            return null;
+
+        }
+
+
+
+        // Attach event listeners to buttons
+
+        document.getElementById('saveCookiesBtn').addEventListener('click', saveCookies);
+
+        logoutBtn.addEventListener('click', logout);
+
+    });
+</script>
+
+
+<a href="hw7.html">Homework 7</a>
+<a href="hw7Part1.html">Part 1 - Object Model</a>
+<a href="index.html">Main Page</a>
+</body>
+
+</html>
