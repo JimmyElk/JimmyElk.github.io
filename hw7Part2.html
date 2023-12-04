@@ -126,156 +126,156 @@
 
     </div>
 
-</body>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
 
-        const contentDiv = document.getElementById('content');
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
 
-        const cookieForm = document.getElementById('cookieForm');
+            const contentDiv = document.getElementById('content');
 
-        const logoutBtn = document.getElementById('logoutBtn');
+            const cookieForm = document.getElementById('cookieForm');
 
-        const saveMessage = document.getElementById('saveMessage');
+            const logoutBtn = document.getElementById('logoutBtn');
 
+            const saveMessage = document.getElementById('saveMessage');
 
 
-        // Check if cookies exist
 
-        const nameCookie = getCookie('name');
+            // Check if cookies exist
 
-        const usernameCookie = getCookie('username');
+            const nameCookie = getCookie('name');
 
+            const usernameCookie = getCookie('username');
 
 
-        if (nameCookie && usernameCookie) {
 
-            // Display welcome message if cookies exist
+            if (nameCookie && usernameCookie) {
 
-            contentDiv.innerHTML = `<p>Welcome back, <strong>${nameCookie}</strong>!</p>`;
+                // Display welcome message if cookies exist
 
-        }
-
-
-
-        function saveCookies() {
-
-            const nameInput = document.getElementById('name').value;
-
-            const usernameInput = document.getElementById('username').value;
-
-
-
-            // Save cookies
-
-            setCookie('name', nameInput);
-
-            setCookie('username', usernameInput);
-
-
-
-            // Display welcome message
-
-            contentDiv.innerHTML = `<p>Welcome, ${nameInput}!</p>`;
-
-
-
-            // Display save message
-
-            saveMessage.textContent = 'Cookies were saved!';
-
-
-
-            setTimeout(() => {
-
-                saveMessage.textContent = '';
-
-            }, 10000); // Clear message after 10 seconds (10000 milliseconds)
-
-        }
-
-
-
-        function logout() {
-
-            // Clear cookies
-
-            document.cookie = 'name=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
-
-            document.cookie = 'username=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
-
-
-
-            // Clear content and show form
-
-            contentDiv.innerHTML = '';
-
-            cookieForm.reset();
-
-
-
-            // Clear save message
-
-            saveMessage.textContent = '';
-
-        }
-
-
-
-        // Function to set a cookie
-
-        function setCookie(name, value) {
-
-            document.cookie = `${name}=${value}; path=/`;
-
-        }
-
-
-
-        // Function to get a cookie by name
-
-        function getCookie(name) {
-
-            const cookieName = `${name}=`;
-
-            const cookies = document.cookie.split(';');
-
-
-
-            for (let i = 0; i < cookies.length; i++) {
-
-                let cookie = cookies[i].trim();
-
-                if (cookie.startsWith(cookieName)) {
-
-                    return cookie.substring(cookieName.length);
-
-                }
+                contentDiv.innerHTML = `<p>Welcome back, <strong>${nameCookie}</strong>!</p>`;
 
             }
 
 
 
-            return null;
+            function saveCookies() {
 
-        }
+                const nameInput = document.getElementById('name').value;
 
-
-
-        // Attach event listeners to buttons
-
-        document.getElementById('saveCookiesBtn').addEventListener('click', saveCookies);
-
-        logoutBtn.addEventListener('click', logout);
-
-    });
-</script>
+                const usernameInput = document.getElementById('username').value;
 
 
-<a href="hw7.html">Homework 7</a>
-<a href="hw7Part1.html">Part 1 - Object Model</a>
-<a href="index.html">Main Page</a>
+
+                // Save cookies
+
+                setCookie('name', nameInput);
+
+                setCookie('username', usernameInput);
+
+
+
+                // Display welcome message
+
+                contentDiv.innerHTML = `<p>Welcome, ${nameInput}!</p>`;
+
+
+
+                // Display save message
+
+                saveMessage.textContent = 'Cookies were saved!';
+
+
+
+                setTimeout(() => {
+
+                    saveMessage.textContent = '';
+
+                }, 10000); // Clear message after 10 seconds (10000 milliseconds)
+
+            }
+
+
+
+            function logout() {
+
+                // Clear cookies
+
+                document.cookie = 'name=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+
+                document.cookie = 'username=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+
+
+
+                // Clear content and show form
+
+                contentDiv.innerHTML = '';
+
+                cookieForm.reset();
+
+
+
+                // Clear save message
+
+                saveMessage.textContent = '';
+
+            }
+
+
+
+            // Function to set a cookie
+
+            function setCookie(name, value) {
+
+                document.cookie = `${name}=${value}; path=/`;
+
+            }
+
+
+
+            // Function to get a cookie by name
+
+            function getCookie(name) {
+
+                const cookieName = `${name}=`;
+
+                const cookies = document.cookie.split(';');
+
+
+
+                for (let i = 0; i < cookies.length; i++) {
+
+                    let cookie = cookies[i].trim();
+
+                    if (cookie.startsWith(cookieName)) {
+
+                        return cookie.substring(cookieName.length);
+
+                    }
+
+                }
+
+
+
+                return null;
+
+            }
+
+
+
+            // Attach event listeners to buttons
+
+            document.getElementById('saveCookiesBtn').addEventListener('click', saveCookies);
+
+            logoutBtn.addEventListener('click', logout);
+
+        });
+    </script>
+
+
+    <a href="hw7.html">Homework 7</a>
+    <a href="hw7Part1.html">Part 1 - Object Model</a>
+    <a href="index.html">Main Page</a>
 </body>
 
 </html>

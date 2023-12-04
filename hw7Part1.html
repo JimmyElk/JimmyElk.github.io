@@ -130,62 +130,57 @@
     </form>
 
 
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
+            const styleForm = document.getElementById('styleForm');
 
-        const styleForm = document.getElementById('styleForm');
-
-        const styleArea = document.getElementById('styleArea');
+            const styleArea = document.getElementById('styleArea');
 
 
 
-        styleForm.addEventListener('change', function () {
+            styleForm.addEventListener('change', function () {
 
-            const selectedColor = document.querySelector('input[name="backgroundColor"]:checked')?.value;
+                const selectedColor = document.querySelector('input[name="backgroundColor"]:checked')?.value;
 
-            const textDecoration = document.querySelector('input[name="textDecoration"]:checked')?.value;
+                const textDecoration = document.querySelector('input[name="textDecoration"]:checked')?.value;
 
-            const fontWeight = document.querySelector('input[name="fontWeight"]:checked')?.value;
+                const fontWeight = document.querySelector('input[name="fontWeight"]:checked')?.value;
 
-            const fontStyle = document.querySelector('input[name="fontStyle"]:checked')?.value;
+                const fontStyle = document.querySelector('input[name="fontStyle"]:checked')?.value;
 
-            const fontSize = styleForm.elements.fontSize.value;
+                const fontSize = styleForm.elements.fontSize.value;
 
-            const fontColor = styleForm.elements.fontColor.value;
+                const fontColor = styleForm.elements.fontColor.value;
 
-            const textAlignment = styleForm.elements.textAlignment.value;
-
-
+                const textAlignment = styleForm.elements.textAlignment.value;
 
 
+                styleArea.style.backgroundColor = selectedColor || '';
 
-            styleArea.style.backgroundColor = selectedColor || '';
+                styleArea.style.textDecoration = textDecoration || '';
 
-            styleArea.style.textDecoration = textDecoration || '';
+                styleArea.style.fontWeight = fontWeight || '';
 
-            styleArea.style.fontWeight = fontWeight || '';
+                styleArea.style.fontStyle = fontStyle || '';
 
-            styleArea.style.fontStyle = fontStyle || '';
+                styleArea.style.fontSize = fontSize || '';
 
-            styleArea.style.fontSize = fontSize || '';
+                styleArea.style.color = fontColor || '';
 
-            styleArea.style.color = fontColor || '';
+                styleArea.style.textAlign = textAlignment || '';
 
-            styleArea.style.textAlign = textAlignment || '';
+            });
 
         });
 
-    });
+
+    </script>
 
 
-</script>
-
-
-<a href="hw7.html">Homework 7</a>
-<a href="hw7Part2.html">Part 2 - Cookies</a>
-<a href="index.html">Main Page</a>
+    <a href="hw7.html">Homework 7</a>
+    <a href="hw7Part2.html">Part 2 - Cookies</a>
+    <a href="index.html">Main Page</a>
 </body>
 
 </html>
