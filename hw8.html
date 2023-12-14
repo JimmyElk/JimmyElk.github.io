@@ -1,20 +1,423 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- saved from url=(0142)file:///C:/Users/nadia/AppData/Local/Temp/26978faf-6041-40c2-b051-283eedfee12e_AjaxAssignment%20(5).zip.12e/AjaxAssignment/ajaxassignment.html -->
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <title>JavaScript - Homework 8</title>
-    <meta name="description" content="Homework 8 - CIS 114">
+    <title>Homework 8 - AJAX Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
     <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px;
+        }
+
         body {
+            background-color: white;
             text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            color: black;
+        }
+
+        .link {
+            color: #2d9fae;
+        }
+
+        .main {
+            display: block;
+            margin: 50px auto;
+            padding: 10px 10px;
+            background-color: #2d9fae;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            width: 135px;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            background-color: rgb(220, 212, 212);
+            color: rgb(8, 12, 116);
+            ;
+        }
+
+        #destination-details {
+
+            text-align: center;
+
+            margin-top: 20px;
+
+        }
+
+
+
+        #destination-image {
+
+            max-width: 100%;
+
+            height: auto;
+
+            margin-bottom: 10px;
+
+        }
+
+
+
+        #destination-list {
+
+            list-style-type: none;
+
+            padding: 0;
+
+        }
+
+
+
+        #destination-list li {
+
+            margin-bottom: 5px;
+
+        }
+
+
+
+        #more-info {
+
+            margin-top: 20px;
+
+            font-style: italic;
+
+        }
+
+        #ajax-explanation,
+
+        #rest-api-info {
+
+            display: none;
+
+            text-align: left;
+
+            margin: 20px;
+
+        }
+
+
+
+        #close-button {
+
+            display: none;
+
+            margin-top: 10px;
+
+            cursor: pointer;
+
         }
     </style>
 </head>
 
 <body>
-    <h1>Coming Soon!</h1>
-    <a href="index.html">Go back to Homework page</a>
+
+    <h1>Homework 8 - AJAX Application</h1>
+    <button type="button" onclick="loadDoc()">Get CD collection</button>
+    <br><br>
+    <table id="demo"></table>
+
+    <br>
+    <br>
+
+
+    <script>
+        function loadDoc() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                myFunction(this);
+            }
+            xhttp.open("GET", "cd_catalog.xml");
+            xhttp.send();
+        }
+        function myFunction(xml) {
+            const xmlDoc = xml.responseXML;
+            const x = xmlDoc.getElementsByTagName("CD");
+            let table = "<tr><th>Artist</th><th>Title</th></tr>";
+            for (let i = 0; i < x.length; i++) {
+                table += "<tr><td>" +
+                    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+                    "</td></tr>";
+            }
+            document.getElementById("demo").innerHTML = table;
+        }
+    </script>
+
+    <!-- Explanation of AJAX -->
+
+    <button onclick="toggleAjaxExplanation()">Toggle AJAX Explanation</button>
+    <br>
+    <br>
+
+    <div id="ajax-explanation">
+
+        <h2>Explanation of AJAX</h2 <p>
+
+        The AJAX functionality is implemented in this application. The <code>loadDoc()</code> function initiates
+
+        an XMLHttpRequest to retrieve data from the "cd_catalog.xml" file asynchronously. Once the data is loaded,
+
+        the <code>onload</code> event triggers the <code>myFunction(xml)</code> function. In
+        <code>myFunction()</code>, the XML
+
+        response is parsed, and a table is dynamically created to display the CD collection's artist and title. This
+
+        process occurs without refreshing the entire page, showcasing the asynchronous nature of AJAX.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- REST API Report -->
+
+    <button onclick="toggleRestApiInfo()">Toggle REST API Info</button>
+
+    <div id="rest-api-info">
+
+        <h2>REST API</h2>
+
+        <p>
+
+            For our travel destinations project, we recommend using the Unsplash API for fetching destination images.
+
+        </p>
+
+        <ul>
+
+            <li><strong>Response File Type:</strong> JSON</li>
+
+            <li><strong>API Key Requirement:</strong> Yes, developers need an API key for access.</li>
+
+            <li><strong>Usage Fee:</strong> The Unsplash API is free to use for non-commercial and commercial purposes,
+
+                with some rate limits.</li>
+
+
+        </ul>
+
+        <p>
+
+            The Unsplash API provides high-quality images with a simple integration process. Developers are required to
+
+            sign up for an API key, allowing access to a vast collection of images suitable for our travel destinations
+
+            project.
+        </p>
+
+    </div>
+
+
+    <script>
+
+        const apiKey = 'YOUR_UNSPLASH_API_KEY'; // 
+
+
+
+
+
+        function toggleAjaxExplanation() {
+
+            const ajaxExplanation = document.getElementById('ajax-explanation');
+
+            const closeButton = document.getElementById('close-button');
+
+
+
+            if (ajaxExplanation.style.display === 'none') {
+
+                ajaxExplanation.style.display = 'block';
+
+                closeButton.style.display = 'block';
+
+            } else {
+
+                ajaxExplanation.style.display = 'none';
+
+                closeButton.style.display = 'none';
+
+            }
+
+        }
+
+        function toggleRestApiInfo() {
+
+            const restApiInfo = document.getElementById('rest-api-info');
+
+            const closeButton = document.getElementById('close-button');
+
+
+
+            if (restApiInfo.style.display === 'none') {
+
+                restApiInfo.style.display = 'block';
+
+                closeButton.style.display = 'block';
+
+            } else {
+
+                restApiInfo.style.display = 'none';
+
+                closeButton.style.display = 'none';
+
+            }
+
+        }
+
+
+
+
+        document.getElementById('close-button').addEventListener('click', function () {
+
+            const ajaxExplanation = document.getElementById('ajax-explanation');
+
+            const restApiInfo = document.getElementById('rest-api-info');
+
+
+
+            ajaxExplanation.style.display = 'none';
+
+            restApiInfo.style.display = 'none';
+
+            this.style.display = 'none';
+
+        });
+
+    </script>
+
+
+    <!-- Extra Credit -->
+    <h2>Extra Credit</h2>
+
+    <h3>Explore Travel Destinations</h3>
+
+
+    <div id="destination-details">
+
+        <img id="destination-image" alt="Destination Image">
+
+        <ul id="destination-list"></ul>
+
+    </div>
+
+
+
+    <button onclick="fetchDestination()">Get Destination</button>
+
+
+
+    <p id="more-info">Click the button to discover exciting travel destinations!</p>
+
+
+
+    <script>
+
+        const apiUrl = 'https://restcountries.com/v3.1/all';
+
+
+
+        function fetchDestination() {
+
+            const xhttp = new XMLHttpRequest();
+
+
+
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState === 4 && this.status === 200) {
+
+                    const data = JSON.parse(this.responseText);
+
+
+
+                    // Select a random destination
+
+                    const randomIndex = Math.floor(Math.random() * data.length);
+
+                    const destination = data[randomIndex];
+
+
+
+                    // Display destination image
+
+                    const destinationImage = document.getElementById('destination-image');
+
+
+
+
+                    destinationImage.src = 'https://source.unsplash.com/400x200/?travel';
+
+
+
+                    // Display destination details
+
+                    const destinationList = document.getElementById('destination-list');
+
+                    destinationList.innerHTML = '';
+
+                    const destinationDetails = `<li>Name: ${destination.name.common}</li>
+    
+                                                <li>Capital: ${destination.capital}</li>
+    
+                                                <li>Region: ${destination.region}</li>`;
+
+                    destinationList.innerHTML = destinationDetails;
+
+
+
+
+                    const moreInfoMessage = document.getElementById('more-info');
+
+                    moreInfoMessage.innerText = 'Click the button for more exciting travel destinations!';
+
+
+
+                    console.log('Destination Details:', destination);
+
+                }
+
+            };
+
+
+
+            xhttp.open('GET', apiUrl, true);
+
+            xhttp.send();
+
+        }
+
+    </script>
+
+
+
+
+
+    <br>
+    <br>
+
+    <a class="main" href="index.html">Main page</a>
+
 </body>
 
 </html>
