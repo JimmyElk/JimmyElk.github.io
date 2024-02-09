@@ -50,6 +50,7 @@ header {
     align-items: center;
 }
 
+
 .about-me img {
     width: 150px;
     margin-right: 20px;
@@ -57,12 +58,8 @@ header {
     float: left;
     border-radius: 50%;
     display: block;
-
 }
 
-.about-me p {
-    flex: 1;
-}
 
 .technologies ul,
 .resources ul {
