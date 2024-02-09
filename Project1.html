@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Simple HTML and CSS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -13,13 +14,15 @@
         <h1>Simple HTML and CSS</h1>
     </header>
 
+    <button id="startAnimation">Start Animation</button>
 
     <section class="about-me">
-        <img src="JimmyE.png" alt="My picture" style="width:180px; height:180px" ;>
-        <p> My name is Jimmy, I am a student of this college for about 2 years and I've been taking
+        <img src="JimmyE.png" alt="Jimmy wearing a white shirt and black tie with stripes"
+            style="width:180px; height:180px">
+        <h3> My name is Jimmy, I am a student of this college for about 2 years and I've been taking
             coding classes since then.
             I also took swimming and fitness classes and I'm currently doing Yoga and Math.
-        </p>
+        </h3>
     </section>
 
     <br>
@@ -40,16 +43,51 @@
     <section class="resources">
         <h4> Resources</h4>
         <ul>
-            <li><a href="https://playcode.io/"> Play Code</a> - The website is very helpful, you can learn different
+            <li><a href="https://playcode.io/" target="_blank" rel="noopener noreferrer"> Play Code</a> - The website is
+                very helpful, you can learn different
                 levels
-                of lessons and practice with the examples</li>
-            <li><a href="https://mimo.org/"> Mimo</a> - Similar to playCode, at mimo you can also learn and practice
+                of lessons and practice with the examples</li><br>
+            <li><a href="https://mimo.org/" target="_blank" rel="noopener noreferrer"> Mimo</a> - Similar to playCode,
+                at mimo you can also learn and practice
                 with
                 the
                 unlimited activities they have to offer</li>
         </ul>
     </section>
 
+    <script>
+
+        $(document).ready(function () {
+
+            $("#startAnimation").click(function () {
+
+                $("header h1").css("font-size", "3em").css("color", "#FF5733").animate({
+
+                    fontSize: "2em"
+
+                }, 1000);
+
+
+
+                setTimeout(function () {
+
+                    $("header h1").css("color", "#FFF");
+
+                }, 1000);
+
+
+
+                $(".about-me img").css("border", "5px solid #FF5733").delay(1000).animate({
+
+                    borderWidth: "0"
+
+                }, 1000);
+
+            });
+
+        });
+
+    </script>
 
 </body>
 
