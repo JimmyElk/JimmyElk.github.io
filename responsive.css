@@ -1,0 +1,39 @@
+@media only screen and (max-width: 600px) {
+
+    header {
+        padding: 10px;
+    }
+
+    #header-content {
+        text-align: center;
+    }
+
+    nav {
+        float: none;
+        margin-top: 10px;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .col-right,
+    .sidebar-left {
+        width: 100%;
+        float: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .sidebar-left {
+        text-align: center;
+    }
+
+    footer {
+        padding: 10px;
+    }
+}
