@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - ABC Toys</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <style>
+        body {
+            padding-top: 3.5rem;
+        }
+
+        .navbar-custom {
+            background-color: rgb(43, 226, 226);
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="#">ABC Toys</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="indexHW3.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactHW3.html">Contact Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="productsHW3.html">Products</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="locationHW3.html">Location</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="extraHW3.html">Extra</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <div class="container mt-5">
+
+        <h1>Products</h1>
+
+        <div id="accordion">
+
+            <div class="card">
+
+                <div class="card-header" id="headingOne">
+
+                    <h5 class="mb-0">
+
+                        <button class="btn btn-link" onclick="toggleCollapse('collapseOne')" aria-expanded="true"
+                            aria-controls="collapseOne">
+
+                            Toy 1
+
+                        </button>
+
+                    </h5>
+
+                </div>
+
+
+
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+
+                    <div class="card-body">
+
+                        <img src="https://target.scene7.com/is/image/Target/GUEST_f5bbf048-4ae6-4e0d-b65b-cd3dfde7d922?wid=1200&hei=1200&qlt=80&fmt=webp"
+                            alt="Toy 1" class="img-fluid mb-2">
+
+                        <p>LEGO City Fire Rescue Boat Toy, Floats on Water Set 60373</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-header" id="headingTwo">
+
+                    <h5 class="mb-0">
+
+                        <button class="btn btn-link" onclick="toggleCollapse('collapseTwo')" aria-expanded="false"
+                            aria-controls="collapseTwo">
+
+                            Toy 2
+
+                        </button>
+
+                    </h5>
+
+                </div>
+
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+
+                    <div class="card-body">
+
+                        <img src="https://target.scene7.com/is/image/Target/GUEST_57356146-ecf5-47da-993c-d4fb9fe894f0?wid=1200&hei=1200&qlt=80&fmt=webp"
+                            alt="Toy 2" class="img-fluid mb-2">
+
+                        <p>LEGO Disney Stitch Buildable Kids' Toy Playset 43249</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-header" id="headingThree">
+
+                    <h5 class="mb-0">
+
+                        <button class="btn btn-link" onclick="toggleCollapse('collapseThree')" aria-expanded="false"
+                            aria-controls="collapseThree">
+
+                            Toy 3
+
+                        </button>
+
+                    </h5>
+
+                </div>
+
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+
+                    <div class="card-body">
+
+                        <img src="https://target.scene7.com/is/image/Target/GUEST_5bad0501-6125-4a62-8e3d-ac88de2d1011?wid=1200&hei=1200&qlt=80&fmt=webp"
+                            alt="Toy 3" class="img-fluid mb-2">
+
+                        <p>LEGO City Express Passenger Train Toy RC Lights Set 60337</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shCk5Vq+8v3RnXlCcM0n0bq0tohGU6LsRWfS5"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        function toggleCollapse(collapseId) {
+
+            var collapseElement = document.getElementById(collapseId);
+
+            var isOpen = collapseElement.classList.contains('show');
+
+            if (isOpen) {
+
+                collapseElement.classList.remove('show');
+
+            } else {
+
+                collapseElement.classList.add('show');
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+
+
+</html>
