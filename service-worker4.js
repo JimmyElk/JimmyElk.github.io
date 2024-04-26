@@ -4,13 +4,13 @@ const urlsToCache = [
 
     '/',
 
-    '/index.html',
+    '/index4.html',
 
-    '/styles.css',
+    '/styles4.css',
 
-    '/script.js',
+    '/script4.js',
 
-    '/manifest.json',
+    '/manifest4.json',
 
     '/192.png',
 
