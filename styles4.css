@@ -1,0 +1,55 @@
+body {
+    background-color: white;
+    background-image: url(lightgold.jpg);
+    background-image: url(lightblue.jpg);
+}
+
+
+
+header {
+
+    background-color: #333;
+
+    color: white;
+
+    padding: 20px;
+
+    text-align: center;
+
+}
+
+
+
+main {
+
+    padding: 20px;
+
+}
+
+
+
+select {
+
+    margin-top: 10px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+input[type="text"] {
+
+    margin-top: 10px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+#name-display {
+
+    font-weight: bold;
+
+}
